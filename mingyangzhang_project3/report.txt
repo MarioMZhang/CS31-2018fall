@@ -1,0 +1,68 @@
+main obstacle:
+how to distinguish the mistakes one by one.
+find the proper way to track each character.(in the first attempt, I missed several characters leading to a logic error)
+
+******************************************************************************************
+pseudocode:
+
+function hasProperSyntax:
+repeatedly check the characters in the pollData string to record the numbers of letters, digits, and comma, and to convert all the letters to uppercase letters
+Compare the sum of them to the total length of the string pollData
+	Return false if they are not the same, which means there are characters other than digits, letters or comma.
+
+If the string is empty, return true
+if the string size is 1, return false 
+	then check if the first 2 characters in the string is a valid state code
+		if not, return false
+		if so, check if the total length of the string equals to 2
+			if so, return true, in this scenario, the string contain only a state code 
+
+Starting from the third character, repeatedly check if the character is a comma
+	if so, check if the comma is the last character or the second last character of the string, and check if the following two characters are a valid state code.
+	if the character is not a comma, then check if it is a digit
+		if so, check if the next character is digit
+			if so or not, check if the next one is a letter
+				if not, return false since there is a wrong party code
+Return true if no error occurs
+
+
+
+Function tallySeats:
+
+Check if the format of pollData is valid 
+	if not, return 1
+Check if the party code is valid 
+	if not, return 2
+If both of them are correct, compare every character in pollData with the party code, and check if the former character and the second former are digits
+	record the sum of number represented by the digits if apply
+	Return 0 and save the sum for seatTally
+
+******************************************************************************************
+
+Test data for function hasProperSyntax:
+
+wrong pollData with space after the comma(Ct13e, ca9i7s)
+wrong pollData with only one letter, inducting wrong state code(a)
+wrong pollData with wrong state code(DS9e8f,MT8s12s)
+wrong pollData with space between digit and party code(CA4 D)
+wrong pollData with no party code(Ga6,nV3o)
+wrong pollData with comma at the beginning(,Ut8x)
+wrong pollData with comma in the end(Ut8x,)
+wrong pollData with two comma together(SD9u17I,,OK09R6a)
+wrong pollData with undefined symbol(!ca8u)
+wrong pollData with three digits before the party code(ca100d7u,CT9i)
+wrong pollData with no digits between party code(ca22ai)
+
+true pollData(CT5D,NY9R17D1I,VT,ne3r00D), (CA7U8o,Ky8s8w00x,wY90D), (SD9u17I,OK09R6a), (me),(), (vT9D)
+assert(hasProperSyntax("CT5D,NY9R17D1I,VT,ne3r00D"));
+assert(hasProperSyntax("Ca7q,ca9s,vt3d"));
+		
+Test data for function tallySeats:
+
+wrong pollData return 1 ("cd9d0w8c",'c',-111), ("a9x0ex",'x',-222), ("Ct13e, ca9i7s", 's',-999)
+wrong party code return 2("Ca8d9x,ct9u23d",'#', -333), ("SD9u17I,OK09R6a",'!',-222)
+
+Valid inputs, check the number of seats("Ca8d9x,ct9u23d",'d', -333), ("CA7U8o,Ky8s8w00x,wY90D",'x',-111), ("Ca7q,ca9s,vt3d",'q',-222)
+empty pollData, and valid party code return 0 and set seats to 0 ("", 's', -222)
+
+

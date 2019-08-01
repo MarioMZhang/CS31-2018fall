@@ -1,0 +1,33 @@
+Notable obstacles:
+How to distinguish different mistakes.
+How to detect wrong, print, and then do not request other items without using if-else (the answer is using "return 1;" as FRQ said)
+I almost misdefine a double variable into an integer.
+
+
+
+
+Test data:
+
+Negative starting odometer number(-10, 200, 4, Allen, y, 10)
+Ending odometer reading less than the starting odometer(200, 1000, 4, Allen, y, 1)
+Non-positive number of rental days(1000, 1800, -3, Allen, n, 8)
+Empty string of name(1000, 2000, 10, , n, 9)
+Luxury status neither "y" or "n"(1000, 1200, 2, Allen, a, 12) 
+Meaningless month number(1000, 1200, 2, Allen, y, 0)
+Message when lots of errors(100, 900, -3, , u, 23)
+
+Winter price(1000, 1200, 2, Allen, y, 7)
+Summer price(1000, 1200, 2, Allen, y, 12)
+Below 100 price(1002,1086,1,May, n, 2)
+100-400 price(2029, 2303,4,Bill Allen, y,6)
+400 or more price(777, 1602, 10, Young, n, 8)
+Small values of odometer(45,55,1 Allen, y, 3)
+
+Some others price:
+(1090, 1523, 3, Allen, y, 8)
+(203, 784, 7, Mike, n, 2)
+(593, 1972, 15, Sherry, y, 5)
+
+
+
+

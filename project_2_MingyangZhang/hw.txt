@@ -1,0 +1,91 @@
+1.
+endlendl
+grendel
+
+2.
+
+It prints a sentence at first:
+Enter a number: 
+Then it asks for a integer defined as side.
+Then it prints as below:
+#
+##
+###
+####
+#####
+... 
+(The number of the rows equals to the value of side, the number of "#" is 1 on the first row and increases one for every following rows.)
+
+3.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int side;
+	
+	cout << "Enter a number: ";
+	cin >> side;
+	
+	for(int i = 1; i <= side; i++)
+	{
+		int j = i;
+		while(j > 0)
+		{
+			cout << "#";
+			j--;
+		}
+		cout << "\n";
+ 	}
+}
+
+4.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int side;
+	
+	cout << "Enter a number: ";
+	cin >> side;
+	int j = 0;
+	if(side == 0)
+	{
+		return 1;
+	}
+	do
+	{
+		for(int i = j; i >=0; i--)
+		{
+			cout << "#";
+		}
+		cout << "\n";
+		j++;
+		side--;
+	}while(side > 0);
+}
+
+5.
+
+switch(codeSection)
+{
+	case 281:
+		cout << "bigamy";
+		break;
+	case 321:
+	case 322:
+		cout << "selling illegal lottery tickets";
+		break;
+	case 383:
+		cout << "selling rancid butter";
+		break;
+	case 598:
+		cout << "injuring a bird in a public cemetery";
+		break;
+	default:
+		cout << "some other crime";
+		break;
+}
